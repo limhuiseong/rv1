@@ -1,7 +1,9 @@
 #ifndef _CONSOLE_H
 #define _CONSOLE_H
 
-void putchar(char c);
+#include "sbi.h"
+
+struct sbiret putchar(char c);
 void printf(const char *fmt, ...);
 
 #endif
