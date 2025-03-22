@@ -8,8 +8,7 @@ void kernel_main(void) {
     memset(__bss, 0, (size_t)__bss_end - (size_t)__bss);
 
     char* boot_message = "\nbooted\n";
-    while (*boot_message)
-        putchar(*boot_message++);
+    printf(boot_message);
 
     while (1);
 }
