@@ -8,6 +8,7 @@ CFLAGS="-std=c11 -O2 -g3 -Wall -Wextra --target=riscv32-unknown-elf -fno-stack-p
 
 LIB=$(find ./lib -name "*.c")
 ARCH=$(find ./arch/riscv -name "*.c")
+MM=$(find ./mm -name "*.c")
 
 $CC $CFLAGS -Wl,-Tkernel.ld -Wl,-Map=kernel.map -o kernel.elf \
     kernel.c $LIB $ARCH
