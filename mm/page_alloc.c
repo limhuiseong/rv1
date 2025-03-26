@@ -1,13 +1,7 @@
 #include "mm.h"
-#include "stdint.h"
-#include "panic.h"
-#include "string.h"
-
-extern char __free_ram[], __free_ram_end[];
 
 paddr_t palloc(uint32_t n)
 {
-    static paddr_t next_paddr = (paddr_t)__free_ram;
     paddr_t paddr = next_paddr;
     next_paddr += n * PAGE_SIZE;
 
@@ -19,7 +13,6 @@ paddr_t palloc(uint32_t n)
 
 paddr_t pcalloc(uint32_t n)
 {
-    static paddr_t next_paddr = (paddr_t)__free_ram;
     paddr_t paddr = next_paddr;
     next_paddr += n * PAGE_SIZE;
 
