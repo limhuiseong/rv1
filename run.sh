@@ -11,7 +11,7 @@ ARCH=$(find ./arch/riscv -name "*.c")
 MM=$(find ./mm -name "*.c")
 
 $CC $CFLAGS -Wl,-Tkernel.ld -Wl,-Map=kernel.map -o kernel.elf \
-    kernel.c $LIB $ARCH
+    kernel.c $LIB $ARCH $MM
 
 $QEMU -machine virt -bios default -nographic -serial mon:stdio --no-reboot \
     -kernel kernel.elf
